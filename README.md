@@ -1,3 +1,7 @@
+# Notes
+
+Project was created in another repo and this is a reupload, so that is why commits are messy.
+
 # Ngrx Final Assignment 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
