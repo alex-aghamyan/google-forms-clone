@@ -1,0 +1,17 @@
+{
+  "cSpell.words": [
+    "immer"
+  ],
+  "conventionalCommits.scopes": [
+    "deps",
+    "configs",
+    "layout",
+    "types",
+    "shared",
+    "forms",
+    "app",
+    "store",
+    "dashboard",
+    "bookmarked-forms"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+    "forms": [
+        {
+            "id": 1,
+            "name": "Example Form",
+            "description": "This is an example form.",
+            "questions": [
+                {
+                    "text": "First Name",
+                    "type": "text"
+                },
+                {
+                    "text": "Last Name",
+                    "type": "text"
+                },
+                {
+                    "text": "Age",
+                    "type": "number"
+                },
+                {
+                    "text": "Role",
+                    "type": "select",
+                    "options": [
+                        "Developer",
+                        "Designer",
+                        "Manager"
+                    ]
+                }
+            ]
+        }
+    ],
+    "responses": [
+        {
+            "id": 1,
+            "formId": 1,
+            "answers": [
+                        "John",
+                        "Doe",
+                        25,
+                        "Developer"
+                    ]
+        }
+    ]
+}
