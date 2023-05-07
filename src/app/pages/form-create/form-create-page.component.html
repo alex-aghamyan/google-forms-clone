@@ -1,0 +1,42 @@
+<form [formGroup]="formCreationForm">
+  <section class="name-description-container">
+    <mat-form-field class="name-field">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="formCreationForm.hasError('required', 'name')">
+        Name is required
+      </mat-error>
+      <mat-error *ngIf="formCreationForm.hasError('maxlength', 'name')">
+        Name can be max 50 characters
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="description-field">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" />
+      <mat-error *ngIf="formCreationForm.hasError('maxlength', 'description')">
+        Description can be max 100 characters
+      </mat-error>
+    </mat-form-field>
+  </section>
+  <section
+    *ngFor="
+      let questionControl of formCreationForm.controls.questions.controls;
+      index as questionControlIndex
+    "
+  >
+    <app-form-question-item
+      (addOptionToQuestion)="addOptionToQuestion($event)"
+      (removeQuestion)="removeQuestion(questionControlIndex)"
+      (removeOptionFromQuestion)="removeOptionFromQuestion($event)"
+      [questionControl]="questionControl"
+    ></app-form-question-item>
+  </section>
+  <section class="buttons-container">
+    <button (click)="addQuestion()" mat-raised-button color="accent" type="button">
+      Add question
+    </button>
+    <button (click)="createForm()" mat-raised-button color="primary" type="submit">
+      Create form
+    </button>
+  </section>
+</form>

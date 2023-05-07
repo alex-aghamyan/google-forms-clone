@@ -1,0 +1,45 @@
+<mat-card appearance="outlined">
+  <form [formGroup]="questionControl">
+    <section class="question-container">
+      <mat-form-field class="question-field">
+        <mat-label>Question</mat-label>
+        <input matInput formControlName="text" />
+        <mat-error *ngIf="questionControl.hasError('required', 'text')">
+          Question text is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-select formControlName="type">
+          <mat-option value="text">Text</mat-option>
+          <mat-option value="number">Number</mat-option>
+          <mat-option value="select">Select</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button (click)="emitRemoveQuestion()" mat-icon-button color="warn" type="button">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </section>
+    <section *ngIf="isQuestionTypeSelect" class="select-options-container">
+      <div *ngFor="let optionControl of optionControls; index as index" class="option-container">
+        <mat-form-field>
+          <mat-label>Option {{ index + 1 }}</mat-label>
+          <input matInput [formControl]="optionControl" />
+          <mat-error *ngIf="optionControl.hasError('required')">
+            Option is required
+          </mat-error>
+        </mat-form-field>
+        <button
+          (click)="emitRemoveOptionFromQuestion(index)"
+          mat-icon-button
+          color="warn"
+          type="button"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+      <button (click)="emitAddOptionToQuestion()" mat-button color="accent" type="button">
+        Add option
+      </button>
+    </section>
+  </form>
+</mat-card>
